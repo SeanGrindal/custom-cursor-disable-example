@@ -1,0 +1,101 @@
+body {
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+   background-color: #f2f2ed;
+   font-family: 'Montserrat', sans-serif;
+}
+
+.cursor {
+   color: #ff5050;
+   display: none;
+   pointer-events: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   position: fixed;
+   transition: all 360ms cubic-bezier(.23,1,.32,1);
+   will-change: transform;
+   z-index: 1000;
+}
+
+.cursor-border {
+   position: absolute;
+   box-sizing: border-box;
+   align-items: center;
+   border: 1px solid #ff5050;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   height: 60px;
+   width: 60px;
+   left: 0;
+   top: 0;
+   transform: translate(-50%, -50%);
+   transition: all 360ms cubic-bezier(.23,1,.32,1);
+}
+
+.cursor.cursor--initialized {
+   display: block;
+}
+
+.cursor.cursor--off-screen {
+   opacity: 0;
+}
+
+.cursor.cursor--focused .cursor-border {
+   width: 90px;
+   height: 90px;
+}
+
+.cursor.cursor--disabled .cursor-border {
+  height: 20px;
+  width: 20px;
+  opacity: 0;
+}
+
+a {
+   text-decoration: none;
+   color: #0a0a0a;
+   font-weight: 700;
+   transition: opacity 720ms cubic-bezier(.23,1,.32,1);
+}
+
+a:not(.photo-link):hover {
+   opacity: .2;
+}
+
+.photo-link {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: block;
+}
+
+.photo-link:hover {
+   opacity: .6;
+}
+
+.photo-link img {
+   height: 80vh;
+   width: auto;
+   max-width: 100vw;
+   object-fit: cover;
+   user-select: none;
+}
+
+.github-link, .npm-link {
+   padding: 8px;
+   top: 8px;
+   right: 8px;
+   position: fixed;
+   font-size: .75rem;
+   text-transform: uppercase;
+}
+
+.npm-link {
+   right: initial;
+   left: 8px;
+}
